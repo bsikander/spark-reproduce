@@ -14,7 +14,7 @@ NOTE: If I don't push any data to socket, the job continues to run. No
       processing.
 
 */
-object NetworkWordCount {
+object NetworkWordCountExample {
   def main(args: Array[String]) {
     val sparkConf = new SparkConf().setAppName("NetworkWordCount")
     val sc = new StreamingContext(sparkConf, Seconds(1))
@@ -37,7 +37,7 @@ object NetworkWordCount {
       x => (x, 1)
     }.reduceByKey {
       (a ,b) =>
-        1/0
+        1/0       // ArithmeticException thrown here 
         (a  + b)
     }
     wordCounts.print()

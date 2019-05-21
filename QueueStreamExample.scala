@@ -22,7 +22,7 @@ NOTE: In this job, awaitTermination doesn't throw exception. Even though
       Job continues to process.
 
 */
-object StreamingExample {
+object QueueStreamExample {
   def main(args: Array[String]) {
     val sparkConf = new SparkConf().setAppName("Streaming Executor Fail")
     val sc = new StreamingContext(sparkConf, Seconds(1))
